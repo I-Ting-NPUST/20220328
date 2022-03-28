@@ -147,7 +147,7 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 355);
+            this.ClientSize = new System.Drawing.Size(421, 297);
             this.Controls.Add(this.textBox_sendMsg);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox_targetPort);
