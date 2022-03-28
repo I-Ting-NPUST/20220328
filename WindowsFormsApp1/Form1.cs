@@ -20,10 +20,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
         UdpClient U;
         Thread Th;
 
@@ -57,8 +54,15 @@ namespace WindowsFormsApp1
         {
             try
             {
-                Th.Abort();//關閉監聽執行續
-                U.Close();//關閉監聽器
+                if (Th != null)
+                {
+                    Th.Abort();//關閉監聽執行序
+                }
+                if (U != null)
+                {
+                    U.Close();//關閉監聽器
+                }
+               
             }
             catch
             {
@@ -74,6 +78,26 @@ namespace WindowsFormsApp1
             UdpClient S = new UdpClient();
             S.Send(B, B.Length, IP, Port);
             S.Close();
+        }
+
+        private string MyIP()
+        {
+            string hostname = Dns.GetHostName();
+            IPAddress[] ip = Dns.GetHostEntry(hostname).AddressList;
+
+            foreach(IPAddress it in ip)
+            {
+                if (it.AddressFamily == AddressFamily.InterNetwork && it.ToString() !="192.168.56.1")
+                {
+
+                    return it.ToString();
+                }
+            }
+            return "";
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Text = "我的IP" + MyIP();
         }
     }
 }
