@@ -40,8 +40,8 @@ namespace WindowsFormsApp1
 
             while (true)
             {
-                byte[] B = U.Receive(ref EP);
-                textBox_receiveMsg.Text = Encoding.Default.GetString(B);
+                byte[] B = U.Receive(ref EP);//接收到的訊息放到B陣列
+                textBox_receiveMsg.Text = Encoding.Default.GetString(B);//翻譯B鎮列為字串
             }
         }
 
